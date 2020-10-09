@@ -45,7 +45,7 @@ enum custom_keycodes {
   LAYER_3,
   LAYER_4,
   LAYER_5,
-  LAYER_8,
+  LAYER_6,
   UNSHIFT_HASH,
   UNSHIFT_RABK,
   UNSHIFT_BSLASH,
@@ -63,12 +63,12 @@ bool holding_layer = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    LOCK, LSFT(KC_QUOTE), KC_GRAVE, KC_F, KC_B, KC_QUES, _, _, KC_LABK, KC_K, KC_Q, KC_SLASH, KC_MINUS, KC_ASTR,
-    KC_TAB, KC_QUOTE, KC_H, KC_D, KC_P, KC_COMMA, LAYER_5, LAYER_5, KC_LCBR, KC_L, KC_U, KC_Y, KC_EQUAL, KC_PLUS,
+    LOCK, LSFT(KC_QUOTE), KC_GRAVE, KC_F, KC_B, KC_QUES, LAYER_5, LAYER_5, KC_LABK, KC_K, KC_Q, KC_SLASH, KC_MINUS, KC_ASTR,
+    KC_TAB, KC_QUOTE, KC_H, KC_D, KC_P, KC_COMMA, LAYER_4, LAYER_4, KC_LCBR, KC_L, KC_U, KC_Y, KC_EQUAL, KC_PLUS,
     KC_ESCAPE,KC_A, KC_R, KC_S, KC_T, KC_DOT, KC_LPRN, KC_N, KC_E, KC_I, KC_O, KC_ENTER,
     LAYER_1, KC_Z, KC_W, KC_G, KC_C, KC_SCOLON, LAYER_2, LAYER_2, KC_LBRACKET, KC_M, KC_V, KC_J, KC_X, LAYER_1,
     KC_LCTRL, KC_LGUI, KC_LALT, KC_DELETE, KC_BSPACE, KC_BSPACE, KC_HYPR, KC_MEH, KC_DLR, KC_PSCREEN,
-    DYN_MACRO_PLAY1,DYN_MACRO_PLAY2,DYN_REC_STOP, LAYER_8,
+    DYN_MACRO_PLAY1,DYN_MACRO_PLAY2,DYN_REC_STOP, LAYER_6,
     KC_MEDIA_PLAY_PAUSE,DYN_REC_START1,
     KC_SPACE, LAYER_3, KC_MEDIA_NEXT_TRACK,DYN_REC_START2, LAYER_3, KC_SPACE
   ),
@@ -87,11 +87,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // Symbol layer
   [2] = LAYOUT_ergodox_pretty(
-    _, KC_NO, KC_PERC, KC_9, KC_8, KC_RPRN, _, _, KC_RPRN, KC_8, KC_9, KC_PERC, KC_NO, KC_NO,
-    _, KC_7, KC_6, KC_5, KC_4, KC_LPRN, _, _, KC_LPRN, KC_4, KC_5, KC_6, KC_7, KC_NO,
+    _, KC_NO, KC_NO, KC_9, KC_8, KC_NO, _, _, KC_NO, KC_8, KC_9, KC_NO, KC_NO, KC_NO,
+    _, KC_7, KC_6, KC_5, KC_4, KC_NO, _, _, KC_NO, KC_4, KC_5, KC_6, KC_7, KC_NO,
     _, KC_3, KC_2, KC_1, KC_0, KC_DOT, KC_DOT, KC_0, KC_1, KC_2, KC_3, _,
-    KC_SLASH, KC_ASTR, KC_MINUS, KC_PLUS, KC_EQUAL, KC_COMMA, _, _, KC_COMMA, KC_EQUAL, KC_PLUS, KC_MINUS, KC_ASTR, KC_SLASH,
-    _, _, _, _, KC_BSPACE, KC_BSPACE, KC_NO, KC_NO, KC_NO, KC_NO,
+    _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, _,
+    _, _, _, _, _, _, _, KC_NO, KC_NO, _,
     _, _, _, _,
     _, _,
     _, _, _, _, _, _
@@ -99,30 +99,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   // Nav layer
   [3] = LAYOUT_ergodox_pretty(
-    _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    _, KC_NO, KC_MS_WH_DOWN, KC_MS_UP, KC_MS_WH_UP, KC_NO, _, _, KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, _,
-    _, KC_MS_WH_LEFT, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_MS_WH_RIGHT, KC_NO, KC_LEFT, KC_DOWN, KC_RIGHT, KC_NO, _,
-    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_END, KC_NO,_, _, KC_NO, KC_HOME, KC_NO, KC_END, KC_NO, KC_LSFT,
-    _, _, _, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    _, _, _, _,
-    _, _,
-    KC_MS_BTN1, KC_MS_BTN2, KC_MS_BTN3, KC_MS_BTN3, KC_MS_BTN2, KC_MS_BTN1
+    _,		KC_NO,		KC_NO, 		KC_NO, 		KC_NO, 		KC_NO,		_,		_, 		KC_NO, 			KC_NO, 			KC_NO, 			KC_NO, 			KC_NO, 			KC_NO,
+    _,		KC_NO,		KC_NO, 		KC_UP, 		KC_NO, 		KC_NO,		_,		_, 		KC_NO, 			KC_MS_WH_DOWN, 		KC_MS_UP, 		KC_MS_WH_UP, 		KC_NO, 			_,
+    _,  	KC_NO,		KC_LEFT, 	KC_DOWN, 	KC_RIGHT, 	KC_NO,						KC_MS_WH_LEFT, 		KC_MS_LEFT, 		KC_MS_DOWN, 		KC_MS_RIGHT, 		KC_MS_WH_RIGHT, 	_,
+    KC_LSFT, 	KC_NO,		KC_HOME, 	KC_NO, 		KC_END, 	KC_NO,		_,		_, 		KC_NO, 			KC_NO, 			KC_NO, 			KC_NO, 			KC_NO, 			KC_LSFT,
+    _,		_,		_,		_,		_,											KC_NO,			KC_NO,			KC_NO,			KC_NO,			KC_NO,
+    										_, 		_, 		_, 		_,
+    												_, 		_,
+    								KC_MS_BTN1, 	KC_MS_BTN2, 	KC_MS_BTN3, 	KC_MS_BTN3, 	KC_MS_BTN2, 	KC_MS_BTN1
   ),
 
-  // F keys
-  [4] = LAYOUT_ergodox_pretty(
-    _, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    _, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, _,
-    _, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15, KC_INSERT, KC_NUMLOCK, KC_SCROLLLOCK, KC_CAPSLOCK, KC_RALT, _,
-    OSM(MOD_LSFT), KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, OSM(MOD_LSFT),
-    _, _, _, KC_F21, KC_F22, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    _, _, _, _,
-    _, _,
-    KC_NO, _, _, _, _, KC_NO
-  ),
-  
   // i3
-  [5] = LAYOUT_ergodox_pretty(
+  [4] = LAYOUT_ergodox_pretty(
     _, _, _, LALT(LGUI(KC_F)),LALT(LGUI(KC_B)),_, _, _, _, LALT(LGUI(KC_K)),LALT(LGUI(KC_Q)),_, _, LALT(LGUI(KC_F9)),
     _, _, LALT(LGUI(KC_H)),LALT(LGUI(KC_D)),LALT(LGUI(KC_P)),LALT(LGUI(KC_F1)),_, _, LALT(LGUI(KC_F1)),LALT(LGUI(KC_L)),LALT(LGUI(KC_UP)),LALT(LGUI(KC_Y)),LALT(KC_F12), _,
     _, LALT(LGUI(KC_A)),LALT(LGUI(KC_R)),LALT(LGUI(KC_S)),LALT(LGUI(KC_T)),LALT(LGUI(KC_F5)), LALT(LGUI(KC_F5)),LALT(LGUI(KC_LEFT)),LALT(LGUI(KC_DOWN)),LALT(LGUI(KC_RIGHT)),LALT(LGUI(KC_O)),LALT(LGUI(KC_ENTER)),
@@ -132,8 +120,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,
     LALT(LGUI(KC_F3)),_, _, _, _, LALT(LGUI(KC_F3))
   ),
+
+  // F keys
+  [5] = LAYOUT_ergodox_pretty(
+    _, KC_NO, KC_NO, KC_F9, KC_F8, KC_NO, _, _, KC_NO, KC_F8, KC_F9, KC_NO, KC_NO, KC_NO,
+    _, KC_F7, KC_F6, KC_F5, KC_F4, KC_NO, _, _, KC_NO, KC_F4, KC_F5, KC_F6, KC_F7, KC_NO,
+    _, KC_F3, KC_F2, KC_F1, KC_F10, KC_NO, KC_NO, KC_10, KC_F1, KC_F2, KC_F3, _,
+    MOD_LSFT, KC_NO, KC_F12, KC_F11, KC_NO, KC_NO, KC_F11, KC_F12, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MOD_LSFT,
+    _, _, _, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, _,
+    _, _, _, _,
+    _, _,
+    _, _, _, _, _, _
+  ),
   
-  [8] = LAYOUT_ergodox_pretty(
+  [6] = LAYOUT_ergodox_pretty(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, EEP_RST,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
@@ -202,11 +202,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     case UNSHIFT_HASH:
-      return unshifted(record, KC_HASH);
+      return unshifted(record, KC_NONUS_HASH);
     case UNSHIFT_RABK:
       return unshifted(record, KC_RABK);
     case UNSHIFT_BSLASH:
-      return unshifted(record, KC_BSLASH);
+      return unshifted(record, KC_NONUS_BSLASH);
     case UNSHIFT_RCBR:
       return unshifted(record, KC_RCBR);
     case UNSHIFT_RBRACKET:

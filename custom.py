@@ -20,8 +20,8 @@ with hid.Device(path=path) as h:
     if msg.startswith("LAYER:"):
       layer = int(msg[6])
       if layer == 3:
-        os.system("xinput --set-prop 21 276 0 0")
+        os.system("xinput --set-prop \"Primax Kensington Eagle Trackball\" 276 0 0")
       else:
-        os.system("xinput --set-prop 21 276 1 0")
+        os.system("xinput --set-prop \"Primax Kensington Eagle Trackball\" 276 1 0")
     else:
       print(msg)
