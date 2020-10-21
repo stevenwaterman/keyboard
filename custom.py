@@ -15,7 +15,7 @@ with hid.Device(path=path) as h:
   print(f'Product: {h.product}')
   print(f'Serial Number: {h.serial}')
   while True:
-    msg = h.read(8).decode()
+    msg = h.read(7).decode()
     
     if msg.startswith("LAYER:"):
       layer = int(msg[6])
