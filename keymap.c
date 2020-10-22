@@ -234,7 +234,7 @@ uint32_t layer_state_set_user(uint32_t state) {
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
 
-  uint8_t msg[RAW_EPSIZE];
+  uint8_t msg[RAW_EPSIZE] = { 0 };
   sprintf((char *)msg, "LAYER:%u", layer);
   raw_hid_send(msg, RAW_EPSIZE);
 
